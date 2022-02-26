@@ -1,0 +1,63 @@
+#метод гаммирования с мультипликативным генератором + Метод Гронсфельда
+# #а = 5 м = 4096 у0 = 4091
+
+
+#ГЕНЕРИРУЕМ МАСКУ
+mask1 = []
+a = int(5)
+m = int(4096)
+y0 = int(m-a)
+
+y = (a*y0)%m
+
+mask1.append(int(y))
+
+i = int(0)
+while i < 4096:
+    y = (a*y0)%m
+    mask1.append(y)
+    y0 = y
+    i += 1
+
+print("введите исходную строку")
+inform = list(input())
+sKey = int(len(inform)+1) #Генерируем второй ключ
+
+del(i,a,m,y0,y)
+
+i = int(0)
+InfLen = len(inform)
+FSHIFR = []
+outTXT = str()
+
+while i < InfLen:
+    trInform = (int(ord(inform[i])))
+    trMask = (mask1[i])
+    newCharacters = trInform^trMask
+    FSHIFR.append(newCharacters + sKey) #записываем числовой вариант, со здвигом по Гронсфельду
+    outTXT += chr(newCharacters + sKey)
+    i += 1
+
+print("Шифр:  ",outTXT)
+
+
+del(i,trInform,trMask)
+
+
+
+
+
+
+
+#Дешифровка
+
+i = int(0)
+outSignal = []
+outTXT = str()
+
+while i < InfLen:
+    outSignal.append(chr((FSHIFR[i] - sKey)^(mask1[i])))
+    outTXT += (chr((FSHIFR[i] - sKey)^(mask1[i])))
+    i+=1
+
+print("Дешифровка: ", outTXT)

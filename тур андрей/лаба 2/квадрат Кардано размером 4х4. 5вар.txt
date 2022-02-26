@@ -1,0 +1,99 @@
+a1 = list(input("16 букв"))
+
+a = ['a','g','r','w']
+b = ['f','w','g','r']
+c = ['j','t','y','j']
+d = ['c','v','b','n']
+
+print(a)
+print(b)
+print(c)
+print(d)
+print()
+
+x = int (0)
+while x<16:
+    while x<4:
+        if x == 0:
+            a[0] = a1[x]
+        elif x ==1:
+            b[1] = a1[x]
+        elif x == 2:
+            c[0] = a1[x]
+        else:
+            d[1] = a1[x]
+        x+=1
+
+
+    while x<8:
+        if x == 4:
+            b[0] = a1[x]
+        elif x == 5:
+            a[1] = a1[x]
+        elif x == 6:
+            b[2] = a1[x]
+        else:
+            a[3] = a1[x]
+        x+=1
+
+
+
+    while x<12:
+        if x == 8:
+            a[2] = a1[x]
+        elif x == 9:
+            b[3] = a1[x]
+        elif x == 10:
+            c[2] = a1[x]
+        else:
+            d[3] = a1[x]
+        x+=1
+
+    while x<16:
+        if x ==12:
+            d[0] = a1[x]
+        elif x == 13:
+            c[1] = a1[x]
+        elif x == 14:
+            d[2] = a1[x]
+        else:
+            c[3] = a1[x]
+        x+=1
+            
+            
+
+    x+=1
+
+
+
+    
+
+print(a)
+print(b)
+print(c)
+print(d)
+
+
+#дешифр
+
+
+outputtxt = []
+outputtxt.append(a[0])
+outputtxt.append(b[1])
+outputtxt.append(c[0])
+outputtxt.append(d[1])
+outputtxt.append(b[0])
+outputtxt.append(a[1])
+outputtxt.append(b[2])
+outputtxt.append(a[3])
+outputtxt.append(a[2])
+outputtxt.append(b[3])
+outputtxt.append(c[2])
+outputtxt.append(d[3])
+outputtxt.append(d[0])
+outputtxt.append(c[1])
+outputtxt.append(d[2])
+outputtxt.append(c[3])
+
+print()
+print(outputtxt)

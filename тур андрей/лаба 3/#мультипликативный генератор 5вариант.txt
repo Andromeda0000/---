@@ -1,0 +1,46 @@
+#мультипликативный генератор
+#а = 5 м = 4096 у0 = 4091
+
+sh = []
+y = int()
+a = int(5)
+m =int(4096)
+y0 = 4091
+
+y = (a*y0)%m
+sh.append(int(y))
+print(y)
+
+i= int(0)
+while i <4096:
+    y = (a*y0)%m
+    sh.append(y)
+    y0 = y
+    i+=1
+
+print(sh)
+
+b = list(input('введите значение, которое нужно закодировать'))
+
+
+
+ii = int(0)
+zzz = len(b)
+e = []
+bb = str()
+while ii < zzz:
+    ff = int(ord(b[ii]))
+    fff = (sh[ii])
+    znak = ff^fff
+    e.append((znak))
+    bb+=chr(znak)
+    ii+=1
+print('шифр:',bb)
+
+#дешифр
+
+ii = int(0)
+
+while ii < zzz:
+    print(chr(e[ii]^sh[ii]))
+    ii+=1

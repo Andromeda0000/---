@@ -1,0 +1,36 @@
+#фейстель
+import random
+from random import randint
+a = list(input())
+b = len(a)
+i = int(0)
+key = []
+while i<b:
+    key.append(i)
+    i+=1
+
+random.shuffle(key) #генерируем ключ
+print(a)
+print(key)
+
+OutTXT = []
+
+i = 0
+
+
+while i<b:
+    zx = int(key[i])
+    zz = a[zx]
+    OutTXT.append(zz)
+    
+    i+=1
+print(OutTXT)
+
+i = 0
+desh = []
+while i<b:
+    zx = int(key[i])
+    zz = OutTXT[zx]
+    desh.append(zz)
+    i+=1
+print(desh)
